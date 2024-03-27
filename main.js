@@ -12,6 +12,7 @@ let listaProdutos = [
         categoria: "bebida",
         preco: 4.25
     }
+
 ];
 
 function listar() {
@@ -23,6 +24,19 @@ function inserir(produto) {
     listaProdutos.push(produto);
 }
 
+function buscarPorId(id){
+    /*for(let i=0; i<listaProdutos.length; i++){
+        if(listaProdutos[i].id === id){
+            return listaProdutos[i];
+        }
+    }*/
+
+    for(let produto of listaProdutos) {
+        if(produto.id === id){
+            return produto;
+        }
+    }
+}
 
 function main() {
     console.log(listar());
@@ -37,8 +51,16 @@ function main() {
         catergoria: "bebida",
         preco: 9.20
     });
+    inserir({
+        nome: "Coca",
+        catergoria: "bebida",
+        preco: 10
+    });
 
     console.log(listar());
+
+    console.log(buscarPorId(5));
+    console.log(buscarPorId(2));
 
 }
 
