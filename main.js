@@ -1,6 +1,7 @@
+let idGerador = 2;
 let listaProdutos = [
     {
-        id:1,
+        id: 1,
         nome: "arroz",
         categoria: "alimento",
         preco: 5.80
@@ -11,16 +12,35 @@ let listaProdutos = [
         categoria: "bebida",
         preco: 4.25
     }
-
 ];
 
-
-function listar(){
+function listar() {
     return listaProdutos;
 }
 
+function inserir(produto) {
+    produto.id = ++idGerador;
+    listaProdutos.push(produto);
+}
+
+
 function main() {
     console.log(listar());
+
+    inserir({
+        nome: "Feijao",
+        catergoria: "alimento",
+        preco: 8.00
+    });
+    inserir({
+        nome: "Suco de laranja",
+        catergoria: "bebida",
+        preco: 9.20
+    });
+
+    console.log(listar());
+
 }
+
 
 main();
